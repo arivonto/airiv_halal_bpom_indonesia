@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_production_lot_form_inherit_halal_bpom" model="ir.ui.view">
+            <field name="name">stock.lot.form.inherit.halal.bpom</field>
+            <field name="model">stock.lot</field>
+            <field name="inherit_id" ref="stock.view_production_lot_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="before">
+                    <header>
+                        <button name="action_release_batch" string="Loloskan QC (Release)" type="object" class="btn-success" invisible="traceability_status == 'released'"/>
+                        <button name="action_quarantine_batch" string="Karantina Batch" type="object" class="btn-warning" invisible="traceability_status == 'quarantine'"/>
+                        <button name="action_emergency_recall_batch" string="🚨 Tarik Produk (Recall)" type="object" class="btn-danger" invisible="traceability_status == 'recalled'"/>
+                        <field name="traceability_status" widget="statusbar" statusbar_visible="released,quarantine,recalled"/>
+                    </header>
+                </xpath>
+                <xpath expr="//group[@name='main_group']" position="after">
+                    <group string="🇮🇩 BPOM 2D QR Code &amp; Sertifikasi Batch">
+                        <group string="Serialisasi BPOM">
+                            <field name="bpom_nie_number"/>
+                            <field name="production_date"/>
+                            <field name="serial_unique_code"/>
+                            <field name="bpom_qr_payload" readonly="1" class="font-monospace text-primary font-weight-bold"/>
+                        </group>
+                        <group string="Verifikasi Mutu &amp; Halal">
+                            <field name="halal_batch_verified"/>
+                            <field name="recall_reason" invisible="traceability_status != 'recalled'" placeholder="Alasan penarikan produk (kontaminasi, cacat kemasan, kadaluarsa)..."/>
+                        </group>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

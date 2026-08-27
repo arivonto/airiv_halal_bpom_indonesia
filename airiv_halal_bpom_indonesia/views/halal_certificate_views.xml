@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_halal_certificate_tree" model="ir.ui.view">
+            <field name="name">halal.certificate.list</field>
+            <field name="model">halal.certificate</field>
+            <field name="arch" type="xml">
+                <list string="Daftar Sertifikat Halal BPJPH" decoration-success="state == 'valid'" decoration-danger="state == 'expired'" decoration-muted="state == 'draft'">
+                    <field name="certificate_number"/>
+                    <field name="name"/>
+                    <field name="issuing_authority"/>
+                    <field name="lph_name"/>
+                    <field name="scope"/>
+                    <field name="validity_start"/>
+                    <field name="validity_end"/>
+                    <field name="product_count"/>
+                    <field name="state" widget="badge"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_halal_certificate_form" model="ir.ui.view">
+            <field name="name">halal.certificate.form</field>
+            <field name="model">halal.certificate</field>
+            <field name="arch" type="xml">
+                <form string="Sertifikat Halal BPJPH">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,valid,expired"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <span class="o_form_label">Nomor Sertifikat Halal (ID/SH)</span>
+                            <h1><field name="certificate_number" placeholder="misal: ID31110000123450123"/></h1>
+                            <h2><field name="name" placeholder="misal: Sertifikat Halal Produk Minuman &amp; Bakery"/></h2>
+                        </div>
+                        <group>
+                            <group string="Otoritas &amp; Lembaga Pemeriksa">
+                                <field name="issuing_authority"/>
+                                <field name="lph_name"/>
+                                <field name="scope"/>
+                                <field name="company_id"/>
+                            </group>
+                            <group string="Masa Berlaku Sertifikasi">
+                                <field name="validity_start"/>
+                                <field name="validity_end"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Daftar Produk Bersertifikat">
+                                <field name="product_ids" readonly="1">
+                                    <list string="Produk Halal">
+                                        <field name="name"/>
+                                        <field name="default_code" string="Kode SKU"/>
+                                        <field name="bpom_nie" string="No. NIE BPOM"/>
+                                        <field name="halal_critical_level" widget="badge"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_halal_certificate" model="ir.actions.act_window">
+            <field name="name">Sertifikat Halal BPJPH</field>
+            <field name="res_model">halal.certificate</field>
+            <field name="view_mode">list,form</field>
+        </record>
+    </data>
+</odoo>

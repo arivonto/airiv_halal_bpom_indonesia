@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_halal_bpom_root"
+                  name="Halal &amp; BPOM"
+                  web_icon="airiv_halal_bpom_indonesia,static/description/icon.png"
+                  sequence="3"/>
+
+        <menuitem id="menu_halal_certificates"
+                  name="Sertifikat Halal BPJPH"
+                  parent="menu_halal_bpom_root"
+                  action="action_halal_certificate"
+                  sequence="1"/>
+
+        <menuitem id="menu_bpom_lots"
+                  name="Serialisasi Lot &amp; 2D QR"
+                  parent="menu_halal_bpom_root"
+                  action="stock.action_production_lot_form"
+                  sequence="2"/>
+    </data>
+</odoo>
