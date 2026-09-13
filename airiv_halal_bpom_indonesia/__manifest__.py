@@ -27,6 +27,7 @@ Core Capabilities:
 """,
     'author': 'Riv Cloud Management',
     'website': 'https://airiv.id',
+    'url': 'https://github.com/arivonto/airiv_halal_bpom_indonesia/blob/18.0/static/description/index.html',
     'license': 'LGPL-3',
     'price': 0.0,
     'currency': 'EUR',
@@ -35,7 +36,8 @@ Core Capabilities:
         'product',
         'stock',
         'product_expiry',
-        'account'
+        'account',
+        'airiv_os_core',
     ],
     'data': [
         'security/ir.model.access.csv',

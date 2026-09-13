@@ -2,8 +2,9 @@
 <odoo>
     <data>
         <menuitem id="menu_halal_bpom_root"
-                  name="Halal &amp; BPOM"
-                  web_icon="airiv_halal_bpom_indonesia,static/description/icon.png"
+                  name="AIRIV Halal &amp; BPOM"
+                  action="airiv_os_core.action_airiv_launchpad_halal"
+                  web_icon="airiv_halal_bpom_indonesia,static/description/airiv_store_icon_128.png"
                   sequence="3"/>
 
         <menuitem id="menu_halal_certificates"
