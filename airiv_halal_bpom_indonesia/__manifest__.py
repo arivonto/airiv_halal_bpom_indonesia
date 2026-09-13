@@ -25,7 +25,7 @@ Core Capabilities:
    - Deep two-way integration with Odoo Stock, Product Templates, and POS
    - Zero External Server Overhead - Always Free ($0.00) under LGPL-3.
 """,
-    'author': 'Riv Cloud Management',
+    'author': 'AIRIV',
     'website': 'https://airiv.id',
     'url': 'https://github.com/arivonto/airiv_halal_bpom_indonesia/blob/18.0/static/description/index.html',
     'license': 'LGPL-3',
